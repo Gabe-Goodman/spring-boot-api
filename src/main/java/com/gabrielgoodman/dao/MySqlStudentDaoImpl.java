@@ -3,11 +3,14 @@ package com.gabrielgoodman.dao;
 
 import com.gabrielgoodman.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Repository;
 
+import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -17,6 +20,11 @@ import java.util.List;
 @Configuration
 @Repository("mysql")
 public class MySqlStudentDaoImpl implements StudentDao {
+
+    private String dbDriver="";
+    private String dbURL="jdbc:mysql://student-database.clfuuwqeaofu.ap-northeast-1.rds.amazonaws.com:3306/my-media-library-mysql";
+    private String dbUserName="admin";
+    private String dbPassword="masterpassword";
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
