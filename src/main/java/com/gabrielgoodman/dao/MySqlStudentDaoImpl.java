@@ -3,6 +3,7 @@ package com.gabrielgoodman.dao;
 
 import com.gabrielgoodman.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -12,6 +13,8 @@ import java.sql.SQLException;
 import java.util.Collection;
 import java.util.List;
 
+
+@Configuration
 @Repository("mysql")
 public class MySqlStudentDaoImpl implements StudentDao {
 
